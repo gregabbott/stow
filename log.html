@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang=en><meta charset=UTF-8>
+<!-- BY + COPYRIGHT 2025 GREG ABBOTT-->
+<style>
+body{
+  width: 64ch;
+  max-width: calc(100dvw - 2ch);
+  margin: 0 auto;
+}
+pre{
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+</style>
+<head><title>STOW Changelog</title></head><body>
+<pre><a href="index.html">STOW</a> CHANGELOG
+================================================================
+<!--Versions new at top. Per date: First at top-->
+2025_0427
+Adds notice for users who have disabled JavaScript
+Tells user if their browser doesn't support the File Access API
+Changes backend naming: projects |> 'Groups'. contexts |> 'tags'
+
+2025_0423
+Adds searchable popover main menu palette
+Adds CMD+SHIFT+P / CMD+P to activate main menu
+Adds up down arrow nav to main menu palette
+Closes main menu on item selection
+Makes 'reopen' button prominent when the option exists
+Removes any project tags from search on click another in sidebar
+Moves record value searcher to table column header
+Moves clear search button inside search field
+Closes main menu on click 'clear' button in empty search field
+Unifies search field X button + Escape Key logic (Clear > Close)
+
+2025_0418
+Implements IndexedDB and File Access API (Chromium only)
+Stores only a reference to a local file in indexedDB
+Remembers file from last session, attempts to auto-re-open it
+Removes all local storage code from previous versions
+(PROS: now a file-based app. CONS: limited to chromium browsers)
+
+2025_0411
+Scrolls selected record into view, only if needed
+Tidies and links to log
+Selects and scrolls to element via arrow keys (disables default)
+Adds 'reset_app' command
+Removes all instances of tag from search query on sidebar click
+Adds 'update visible records count' function (runs on restore)
+Improves "strip date from preview" function
+
+2025_0410
+Named tool "Stow"
+Adds license info
+Tidies code
+
+2025_0409
+DB specific
+  Tweaks 'Made' and 'Done' data format to store date AND time
+  Strips dates data from preview of record
+Adds local storage
+Builds sidebar tags sections from nested details elements
+Saves DB as plain text file
+Loads existing txt file
+Tests 800+ record database
+Scrolls table body (not page)
+Toggles nested tag display via DETAIL elements marker only
+  Allows elements in detail SUMMARY to perform other actions
+Styles sidebar
+
+2025_0408
+Refactors frontend to use plain HTML to show state (not CSS)
+  Checkboxes and radios show states
+  Buttons show actions
+  Disabled attributes show options related to active elements
+Adds multi-record select and actions (e.g. delete, change state)
+Refactors towards developing tool as general purpose DB editor
+  Initial implementation focused on task-specific DB
+Adds 'clone' record option
+
+2025_0406
+Updates counts (records, tags) when database changes
+Styles nested tags to look nested in sidebar
+Highlights sidebar tags and states in current search query 
+Counts how many records match any current search query
+Filters records shown by clicking tags in sidebar
+- Adds any tag clicked in sidebar to search query if absent
+- Removes any tag clicked in sidebar from search query if found
+Pre-populates new record window with date stamp
+Pre-populates new record window with any tags in current search
+Picks search logic to use based on search query word count
+- Allows a single word query to match anywhere in a record
+- Needs every query word to match the start of a word in record
+Adds date to new record data if missing from form / field data
+Re-sorts shown records when DB changes (on edit or add record)
+Adds keyboard shortcuts to navigate selected records: up, down
+Adds JS DB to string DB converter
+
+2025_0405
+Adds base functions, logic, layout, and UI elements
+Parses string DB to JS DB
+Shows DB on front end
+Filters records by user search
+Filters records by property state (e.g. done, todo, any)
+Shows tags and counts (e.g. project, context) from DB in sidebar
+Allows changing record data
+================================================================
+By + &copy; 2025 <a 
+href="https://gregabbott.pages.dev">Greg Abbott</a>
+</pre></body></html>

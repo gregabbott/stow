@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang=en><head><meta charset=UTF-8>
+<meta name=color-scheme content="light dark">
+<link rel=icon href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiICB4PSIwIiB5PSIwIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8c3R5bGU+LmF7CmZpbGw6IzI1MjUyNTsKZm9udC1mYW1pbHk6VmVyZGFuYTsKdGV4dC1hbmNob3I6bWlkZGxlOwp9PC9zdHlsZT4KICA8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0ZGRiIvPjx0ZXh0IGNsYXNzPSJhIiBmb250LXNpemU9IjY4cHgiIHg9IjEwMCIgeT0iMTE2Ljg3NSI+U3RvdzwvdGV4dD48L3N2Zz4=">
+<link rel=stylesheet href=frame.css>
+<!-- STOW. By + copyright 2025 Greg Abbott-->
+<!-- --><link rel=stylesheet href=look.css > <!---->
+<title>Stow</title></head><body>
+<div popover id=po_license>
+<p>Name: <span title="STOW Means:
+To pack or store (an object) carefully and neatly
+To place or arrange in a compact mass
+To put an object in its proper place, or in a suitable place"
+>Stow</span><br>
+Version: 2025_0427 <i>(Pre-alpha)</i><br>
+View: <a href=log.html>Change Log</a></br>
+By: <a
+href=https://gregabbott.pages.dev/>Greg Abbott</a>
+</p>
+<hr>
+<p>LICENSE<br>
+&copy; 2025 Greg Abbott. All rights reserved.</p>
+<p>NO WARRANTY<br>
+THE SOFTWARE IS PROVIDED "AS IS",
+WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE
+AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+</div>
+<noscript>
+  <div class="full_viewport_notice">
+  <p>This tool requires JavaScript<br>
+  <a
+href=https://gregabbott.pages.dev/>View other tools</a></p>
+  </div>
+</noscript>
+<div id="unsupported_browser" class="full_viewport_notice hide">
+<div><p>Your browser doesn't support the File Access API.<br>
+This tool uses it to edit local files.</p>
+<p><a
+  href=https://gregabbott.pages.dev/>View other tools</a></p>
+</div>
+</div>
+<div id="main_menu_po" popover 
+>
+<!--
+  style="display: block;"
+
+-->
+  <g-search>
+    <input type=text id="menu_items_searcher">
+    <button id="clear_menu_items_searcher">x</button>
+    
+  </g-search>
+  <div id="menu_items">
+    <div id=file_select><input type=radio name=mi><button>Open File</button></div>
+    <div id=file_close><input type=radio name=mi><button >Close File</button></div>
+    <div id=file_forget><input type=radio name=mi><button >Forget File</button></div>
+    <div id=file_save><input type=radio name=mi><button >Save</button></div>
+    <div id=file_save_as><input type=radio name=mi><button >Save As</button></div>
+    <div id=add_new_record><input type=radio name=mi><button>Add Record</button></div>
+    <div id=show_delete_dialog><input type=radio name=mi><button >Bin Record</button></div>
+    <div id=clone_record><input type=radio name=mi><button >Clone Record</button></div>
+    <div id=edit_record><input type=radio name=mi><button >Change Record</button></div>
+    <div id=mark_done><input type=radio name=mi><button >Tick Record</button></div>
+    <div id=mark_undone><input type=radio name=mi><button >Untick Record</button></div>
+    <div id=show_po_license><input type=radio name=mi><button>About and License</button></div>
+  </div>
+  <footer>
+    <div id="file_status"></div>
+    <!--<div class=credit>
+      <div id="show_po_license">&copy; 2025</button>
+      <a href=https://gregabbott.pages.dev/>Greg Abbott</a>
+    </div>-->
+  </footer>
+</div>
+<dialog id="file_dialog">
+  <p id="file_dialog_message"></p>
+  <menu>
+    <button id="file_dialog_done_button">done</button>
+  </menu>
+</dialog>
+<nav>
+  <g-notice></g-notice>
+  </nav>
+  <main>
+    <g-db>
+     
+     <div id=table_holder>
+        <table>
+          <thead>
+<tr>
+  <td><td>Showing <span id=visible_records></span>
+<tr>
+  <td><button id=deselect_all title="Deselect All Records">x</button>
+  <td> <g-search>
+    <input title="Search Records" placeholder="" type=text id=records_search_query size=64>
+    <button id=clear_records_search_query title="Clear record search">x</button>
+  </g-search>
+  
+    <tbody id=records_list>
+        </table>
+      </div>
+      <div id=editor_po popover>
+        <input type=text id=editor size=48>
+        <!--
+        make the button text applicable to any action
+        the tool uses this field for multiple actions
+        (write / edit)
+        -->
+        <button id=apply_edit>Keep</button>
+        <button id=cancel_edit title="Cancel">Close</button>
+      </div>
+    </g-db>
+    <aside>
+      <div id="a_few_buttons">
+        <button id=show_main_menu_po>Menu</button>
+        <!--Make Prominent when applicable:-->
+        <button id=file_load_stored >Reopen</button>
+      </div>
+      <div class="aside_main">
+      <details open>
+        <summary> State</summary>
+        <table>
+        <tbody id=statesList>
+          <tr>
+            <td>
+            <input 
+            name=state_rad type=radio checked
+            id=show_state_any 
+              >
+            <label for=show_state_any>Any</label>
+            <td id="show_state_count_all"></td>
+          <tr>
+            <td>
+            <input  name=state_rad type=radio
+            id=show_state_todo >
+            <label for=show_state_todo>Do</label>
+            <td id=show_state_count_todo></td>
+          <tr>
+            <td>
+            <input  name=state_rad type=radio
+            id=show_state_done >
+            <label for=show_state_done>Done</label>
+            <td id=show_state_count_done>
+        </table>
+      </details>
+      <details open>
+        <summary>
+          <button id=strip_from_search_value_any_groups
+          title="Clear any '+group' filters from the search field"
+          >x</button>
+          Group
+        </summary>
+        <div id=groups_list></div>
+      </details>
+      <details open>
+        <summary>
+          <button id=strip_from_search_value_any_tags
+          title="Clear any '@tag' filters from the search field"
+          >x</button>
+          Tag
+        </summary>
+        <div id=tags_list></div>
+      </details>
+      </div>
+      <footer class="hide">
+        <div>
+        <button popovertarget="po_license">&copy; 2025</button>
+        <!---->
+        <a href=https://gregabbott.pages.dev/>Greg Abbott</a>
+        <!---->
+        </div>
+      </footer>
+    </aside>
+  </main>
+  <dialog id=delete_dialog>
+    <p>Per record selected:</p>
+    <button id=delete_confirm autofocus>Bin</button>
+    <button id=delete_cancel>Keep</button>
+  </dialog>
+  <!--<footer></footer>-->
+  <div id=hide_popover></div>
+  <script src=j.js></script>
+</body>
+</html>
