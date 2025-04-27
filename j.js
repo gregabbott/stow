@@ -848,7 +848,8 @@ on('click',()=>{
 function hide(l){l.classList.add('hide')}
 function show(l){l.classList.remove('hide')}
 //==============================================================
-// FILE Access 4 read write chromium & IndexedDB remember handle
+// Local File Read and Write access via File System Access API
+// Using IndexedDB to remember reference / handle to file
 const idb = (() => {
   const db_name = 'fileHandleDB'
   const store_name = 'handles'
@@ -1480,7 +1481,7 @@ function add_new_record({record}={}) {
   }
   return new_record
 }
-function supports_file_access_api() {
+function supports_file_system_access_api() {
   return 'showOpenFilePicker' in window
   && 'showSaveFilePicker' in window
 }
@@ -1492,7 +1493,7 @@ function live_db_to_string_db(){
   return a.join('\n')
 }
 on('load',async()=>{
-  if(!supports_file_access_api()){
+  if(!supports_file_system_access_api()){
     show(el.unsupported_browser)
     return
   }
