@@ -1,4 +1,4 @@
-Stow edits and stores tabular data in a JSON format. It reads and writes local (gzipped) plain text files, runs offline in a browser as a single page GUI app, and bundles to a single HTML file under 50KB.
+Stow edits and stores tabular data in a JSON format. It reads and writes local (gzipped) plain text files, runs offline in a browser as a single page GUI app, and bundles everything into a HTML monofile under 50KB.
 
 <details open><summary>Example Stow File Structure</summary>
 
