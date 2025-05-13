@@ -15,10 +15,130 @@ pre{
 <pre><a href="index.html">STOW</a> CHANGELOG
 ================================================================
 <!--Versions new at top. Per date: First at top-->
+2025_0513
+Adds menu item to make "New DB"
+  (Previously refreshed page to return to Demo DB on page load)
+  Confirms if user wants to close any open unsaved file first
+  Resets all state
+  Prompts for wanted columns names, as comma separated list
+  Loads new blank DB
+Adds custom button text to prompts (adds parameters to Fn)
+Stops rows of blank cells collapsing (Adds height CSS property)
+Saves and opens compressed gzipped DBs (.gz) as well as (.json)
+Adds 'Copy row as JSON' to record row menu
+  Makes JSON keys match column order (even if numerical-only)
+Shows current saved/unsaved status on frontend
+Adds 'scroll to top' button and shows it when not at top
+Logs time to save a file (DB>JS>JSON>Compress>Write)
+Updates demo DB to list some keyboard shortcuts and actions
+Adds new row, triggered by key shortcut, below any selected row
+Updates record count after more actions that change it
+
+2025_0512
+Adds "dense view" toggle for cell vertical padding
+Swaps cell borders for outlines to not affect inner / row height
+Shows all tool tips on hover (vs after hover)
+Puts context menus near click position (avoids viewport edges)
+Aligns context menus to grid
+Scrolls any context menu taller than viewport
+Saves data in more compact form: [name:[c1v,c2v],note:[c1v,c2v]]
+  Instead of object per column (each repeating all column keys)
+Tests tool with a 4000 cell database (e.g. 800 rows, 5 cols)
+Stores column filter state as 0/1 (not boolean) for lighter file
+Shows current filter query in cell, and truncates to fit
+Highlights columns that have an active search filter
+
+2025_0511
+Allows setting type of data per column, Number, String, Boolean
+Reads in and stores type per column in data
+Stores typed data in backend, shows string on frontend
+Alerts user if they enter a value not matching the column type
+Adds 'any' type which converts column inputs to likeliest types
+Adds 'Copy DB as JSON' to menu, notifies on pass or fail
+Replaces cell editor with custom prompt FN for wider use
+Adds 'column type' editor (popover) and tool tips to options
+Styles column per type (Aligns data in number columns right)
+Keeps column CSS in sync with columns on move
+  e.g. move a number-type column left, match css to new position
+Stores save date in file's "meta" object "last" property
+Enters column filter editor of selected cell on keypress 'f'
+Shows DB name as table header (caption)
+Sets DB meta (name, note, made) to blanks if absent
+Allows renaming DB by clicking table title / caption
+Fixes 'clone row'. Clones record data (not cell textContent)
+
+2025_0510
+Makes filter editor a popover (to see whole of long queries)
+Styles context menus
+Stores one settings {} per column {name,note,find,filterOn,etc}
+Allows editing column note (for purpose / prompt / description)
+Shows any column note on hover column name cell
+
+2025_0509
+Allows switching each column filter on or off (preserves query)
+Stores filter on or off state in saved file
+
+2025_0508
+Aligns UI to a grid
+Scroll snaps to grid
+Makes first table column cells TH - reserves TD for record data
+  (Simplifies backend logic as a result)
+Implements custom right click handler
+Adds right click menu to rows
+
+2025_0507
+Adds row actions menu
+  Offers to delete all ticked rows if user clicks one of many
+Adds custom confirm dialog function (for any use case later)
+Updates displayed number of selected rows (via custom observer)
+Backend refactors, groups and improves keyboard shortcuts logic
+
+2025_0506
+Adds column actions menu
+Adds 'add new column' (to left or right of current) action
+Refactors row maker (Separates function per specific head row)
+  (Filter row maker, Title row maker)
+Adds 'move column' (to left or right) action
+Adds 'sort column' (a-z and z-a) action
+Warns user 'sort column' currently has no undo feature
+Allows user to clear a cell/properties value
+Adds 'delete column' action
+Warns user 'delete column' action currently has no undo feature
+Adds 'rename column' action (notifies no change if given "")
+Rewrites "add new record"
+  Adds new record above selected record or above top record
+  Populates new records with all current search queries
+Updates "clone record" function
+Updates "delete selected records" function
+Updates tool to store and load JSON (not txt)
+Drafts a helper tool to convert todotxt file or string to JSDB
+  (short for "JSON Database", simple format/spec this tool uses)
+Handles loading database with missing data (e.g. field names)
+Changes shortcuts to trigger on keyup not keydown (placeholder)
+  Avoids multiple function triggers on single keypress event
+
+2025_0505
+Refactors to process a JSON object not text
+Presents data as a table, with keys as column header row names
+Adds filter for every column / field
+  Stops checking a row against unchecked filters on 1st mismatch
+Adds placeholder for column sort buttons
+Adds 'insert date stamp' button to editor popover
+Makes editor input a 'type=search' for inbuilt 'clear' button
+Adds datalist prompts to column filters: "IS_BLANK", "NOT_BLANK"
+Removes sidebar and related logic (which column filters replace)
+
+2025_0502
+Unifies search logic
+  matches each searched word to the start of a word in a record
+  it previously let a one word query match any text in a record
+  
 2025_0427
 Adds notice for users who have disabled JavaScript
 Tells user if their browser doesn't support the File Access API
 Changes backend naming: projects |> 'Groups'. contexts |> 'tags'
+Auto focuses 'reopen file' button when tool remembers a file
+Opens main menu with '/' keyboard shortcut
 
 2025_0423
 Adds searchable popover main menu palette
