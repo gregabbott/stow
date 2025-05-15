@@ -5,10 +5,10 @@ Stow edits tables and stores tabular data in a JSON format. The GUI tool reads a
 ```jsonc
 {
  "meta": {
-  "name": "Database name",
-  "made": "Date database made",
-  "note": " summary about the database",
-  "last": "Date database last edited"
+  "name": "Data name",
+  "made": "Date file made",
+  "note": "Summary / explainer about the data",
+  "last": "Date file last edited"
  },
  "form": {
   "name": ["c1 name","c2 name"],
