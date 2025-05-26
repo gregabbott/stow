@@ -15,6 +15,37 @@ pre{
 <pre><a href="index.html">STOW</a> CHANGELOG
 ================================================================
 <!--Versions new at top. Per date: First at top-->
+2025_0526
+Adds custom stringify and outputs 1 record per line
+Clarifies 'Sort rows by Column' message and uses custom dialog
+Marks unsaved on col sift/sort/zap/move/add/edit[note/type/name]
+Styles active column
+Lets user toggle background grid
+Adds Theme Mode - [Light,Dark,Auto] (CSS controlled)
+
+2025_0525
+Rewrites all data-table functions from scratch and re-implements
+  (Prepares for handling larger files and pagination options)
+  Adds all available methods to the data-table on read / load
+  Separates data-table and frontend related actions and purposes
+  Keeps data-table in sync with user edits (vs. wait until save)
+  Rewrites all frontend actions to use new data-table methods:
+    row fns: clone, delete, add (above below), copy as JSON
+    col fns: edit [name, type, note], delete, sort, move, add
+Updates "Save" function to work with new library
+Rewrites table-data filter to redraw frontend with matches only
+	Prepares for pagination setup (vs hide & show existing rows)
+Adds pagination logic to backend
+Adds previous and next page buttons to frontend
+Adds 'rows per page' option to frontend and live updates
+  Disables 'left' on the first page, 'right' on last
+Shows the current page number and total page count on frontend
+Reworks 'add row above / below' key-shortcuts for pagination
+Alerts if filters or rows-per-page stops 'hides' newly made row
+Updates frontend stats to work with new pagination logic
+Adds 'default value' per columns
+Uses 'default value' on new record columns with no live filter
+
 2025_0517
 Dismisses context menu on any right click event outside of it
 Resizes table on add column via keyboard shortcut
