@@ -1,6 +1,14 @@
 <!DOCTYPE html><html lang=en><meta charset=UTF-8>
 <!-- BY + COPYRIGHT 2025 GREG ABBOTT-->
 <style>
+  :root {
+  color-scheme: light dark;
+  --light: hsl(0, 0%, 100%);
+  --dark: hsl(0, 0%, 0%);
+  --bg: light-dark(var(--light), var(--dark));
+  --fg: light-dark(var(--dark), var(--light));
+}
+a,body {background:var(--bg);color: var(--fg);}
 body{
   width: 64ch;
   max-width: calc(100dvw - 2ch);
@@ -15,6 +23,32 @@ pre{
 <pre><a href="index.html">STOW</a> CHANGELOG
 ================================================================
 <!--Versions new at top. Per date: First at top-->
+
+2025_1001
+Remembers multiple files (vs. most recent only)
+Adds "Recent Files" popover with "Open" and "Forget" options
+Adds tab key navigation to files in "Recent Files" popover
+Remembers write permissions across sessions (vs. ask repeatedly)
+Updates any stored file name on open, if renamed since last open
+Asks for read-write permission on open file to reduce requests
+Adds window-wide drag-drop file opener
+Adds files to the recent files list on opening successfully
+  In the same session (vs next session)
+Reserves a blank area of UI for notifications (vs. overlap)
+Splits file system logic to a separate file
+Removes some unused code
+Removes theme options in favour of following system mode only
+Moves buttons from toolbar to searchable main menu:
+  - Toggle ruled grid view
+  - Toggle compact / normal view
+  - Scroll table body back to the top row
+Styles tool with fonts other than Courier when available
+Hides "ruled grid" by default (mainly a development helper)
+Reloads demo DB after closing a file
+Tweaks frontend styles, lightly
+Tests placing tool tips near to item they comment on
+  Reverts to placing all tips in a single bar for simplicity
+
 2025_0527
 Changes editor to textarea to allow multi line values
 Uses keyboard shortcut CMD+Enter to apply new cell value
